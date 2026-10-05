@@ -153,7 +153,7 @@
 							<span id="selTotal">0 đ</span>
 						</div>
 						<div class="warn-box" id="stockWarn">Có sách đã chọn vượt quá tồn kho. Hãy giảm số lượng hoặc bỏ chọn để tiếp tục thanh toán.</div>
-						<button type="button" id="checkoutBtn" class="btn btn-accent" disabled style="opacity:.55; cursor:not-allowed;">Thanh toán (COD)</button>
+						<button type="submit" form="selForm" formaction="<c:url value='/checkout'/>" formmethod="get" id="checkoutBtn" class="btn btn-accent">Thanh toán (COD)</button>
 					</div>
 				</div>
 			</c:otherwise>
@@ -209,6 +209,7 @@
 				document.getElementById('selCount').textContent = count;
 				document.getElementById('selCount2').textContent = count;
 				document.getElementById('selTotal').textContent = fmt(total) + ' đ';
+				document.getElementById('checkoutBtn').disabled = count === 0 || over;
 				document.getElementById('delSelBtn').disabled = count === 0;
 				document.getElementById('stockWarn').style.display = over ? 'block' : 'none';
 			}

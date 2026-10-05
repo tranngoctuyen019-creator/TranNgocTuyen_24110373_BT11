@@ -30,6 +30,7 @@
 				<c:when test="${not empty sessionScope.user}">
 					<c:if test="${not sessionScope.user.admin}">
 						<li><a href="<c:url value='/cart'/>">Giỏ hàng<c:if test="${cartCount > 0}"> <span class="cart-badge">${cartCount}</span></c:if></a></li>
+						<li><a href="<c:url value='/orders'/>">Đơn hàng của tôi</a></li>
 					</c:if>
 					<li><a href="#">Xin chào, ${sessionScope.user.fullname}</a></li>
 					<li><a href="<c:url value='/logout'/>">Đăng xuất</a></li>
